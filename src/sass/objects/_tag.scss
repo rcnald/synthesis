@@ -1,0 +1,30 @@
+$object-name: 'o-tag';
+$layout-name: 'l-tag';
+
+.#{$object-name}{
+    @apply flex justify-center rounded-lg self-center text-[0.5rem] font-medium bg-[var(--tag-color-background)];
+    color: var(--tag-color-text);
+
+    &--add{
+        @apply border border-dashed whitespace-nowrap border-text-300 leading-[0.5rem] px-[0.1563rem] text-[0.375rem] bg-transparent text-text-300;
+    }
+
+    &--JS{
+        --tag-color-text: var(--JS-color-text);
+        --tag-color-background: var(--JS-color-background);
+    }
+
+    &--HTML{
+        --tag-color-text: var(--HTML-color-text);
+        --tag-color-background: var(--HTML-color-background);
+    }
+
+    &--CSS{
+        --tag-color-text: var(--CSS-color-text);
+        --tag-color-background: var(--CSS-color-background);
+    }
+}
+
+.#{$layout-name}{
+    @apply w-10;
+}

@@ -1,0 +1,12 @@
+$component-name: 'c-main';
+$layout-name: 'l-main';
+
+.#{$component-name}{
+    @apply grid grid-cols-[repeat(auto-fit,minmax(0px,220px))] gap-6;
+    grid-auto-rows: 260px;
+    place-content: start center;
+}
+
+.#{$layout-name}{
+    @apply max-w-6xl w-full h-[600px] overflow-y-auto;
+}  

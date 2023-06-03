@@ -1,0 +1,55 @@
+$component-name: 'c-card';
+$layout-name: 'l-card';
+
+.#{$component-name}{
+    @apply bg-background-800 pb-[1.25rem] rounded-xl;
+
+    &:hover{
+        .#{$component-name}__wrapper{
+            @apply opacity-100 max-h-[12.5rem];
+            transition: max-height 2s, opacity 1s;
+        }
+    }
+
+    &__content{
+        @apply relative flex flex-col gap-2 p-4 bg-background-700 rounded-xl h-fit;
+        transition: all 1s;
+    }
+
+    &__header{
+        @apply flex gap-2 text-text-100;
+    }
+
+    &__title{
+        @apply font-semibold text-base;
+    }
+
+    &__type{
+        @apply text-xs self-center;
+    }
+
+    &__tags{
+        @apply flex gap-1 flex-wrap;
+    }
+
+    &__description{
+        @apply text-[0.5rem] text-text-300 text-start;
+    }
+
+    &__image{
+        @apply grid place-items-center h-[5.625rem] aspect-video bg-blue-400 rounded-xl;
+    }
+
+    &__wrapper{
+        @apply flex justify-between max-h-0 opacity-0;
+        transition: max-height 750ms, opacity 300ms;
+    }
+
+    &__button{
+        @apply bg-button-900 px-[18px] py-[3px] font-semibold text-[8px] text-text-300 rounded-md;
+    }
+}
+
+.#{$layout-name}{
+    @apply h-fit w-full;
+}

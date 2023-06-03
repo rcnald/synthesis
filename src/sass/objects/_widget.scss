@@ -1,0 +1,15 @@
+$object-name: 'o-widget';
+$layout-name: 'l-';
+
+.#{$object-name}{
+    @apply bg-button-900 w-[30px] aspect-square fixed bottom-[10px] right-[10px] rounded-[50%];
+    transition: border-radius 250ms, background-color 500ms, color 500ms;
+
+    &:hover{
+        @apply bg-button-100 rounded-[10px] text-white
+    }
+}
+
+.#{$layout-name}{
+
+}
