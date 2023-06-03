@@ -7,7 +7,10 @@ $layout-name: 'l-card';
     &:hover{
         .#{$component-name}__wrapper{
             @apply opacity-100 max-h-[12.5rem];
-            transition: max-height 2s, opacity 1s;
+            transition: max-height 2s 100ms, opacity 1.5s 100ms;
+        }
+        .#{$component-name}__line{
+            @apply w-full;
         }
     }
 
@@ -40,9 +43,14 @@ $layout-name: 'l-card';
         @apply grid place-items-center h-[5.625rem] aspect-video bg-blue-400 rounded-xl;
     }
 
+    &__line{
+        @apply w-0;
+        transition: all 500ms;
+    }
+
     &__wrapper{
         @apply flex justify-between max-h-0 opacity-0;
-        transition: max-height 750ms, opacity 300ms;
+        transition: max-height 350ms, opacity 300ms;
     }
 
     &__button{

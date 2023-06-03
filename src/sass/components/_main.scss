@@ -8,5 +8,5 @@ $layout-name: 'l-main';
 }
 
 .#{$layout-name}{
-    @apply max-w-6xl w-full h-[600px] overflow-y-auto;
+    @apply max-w-6xl w-full;
 }  
