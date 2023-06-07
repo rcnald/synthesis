@@ -2,20 +2,28 @@ $component-name: 'c-card';
 $layout-name: 'l-card';
 
 .#{$component-name}{
-    @apply bg-background-800 pb-[1.25rem] rounded-xl;
+    @apply bg-background-800 pb-5 rounded-xl;
 
-    &:hover{
-        .#{$component-name}__wrapper{
-            @apply opacity-100 max-h-[12.5rem];
-            transition: max-height 2s 100ms, opacity 1.5s 100ms;
+    &:is(:hover,:focus-within){
+        .#{$component-name}{
+            &__wrapper{
+                &--fade{
+                    @apply opacity-100 max-h-52;
+                    transition: max-height 2s 100ms, opacity 1.5s 100ms;
+                }
+            }
         }
-        .#{$component-name}__line{
-            @apply w-full;
+
+        .#{$layout-name}{
+            &__line{
+                @apply w-full;
+                transition: width 500ms;
+            }
         }
     }
 
     &__content{
-        @apply relative flex flex-col gap-2 p-4 bg-background-700 rounded-xl h-fit;
+        @apply relative flex flex-col gap-2 p-4 rounded-xl bg-background-700;
         transition: all 1s;
     }
 
@@ -25,6 +33,10 @@ $layout-name: 'l-card';
 
     &__title{
         @apply font-semibold text-base;
+
+        &--small{
+            @apply text-xs;
+        }
     }
 
     &__type{
@@ -36,28 +48,61 @@ $layout-name: 'l-card';
     }
 
     &__description{
-        @apply text-[0.5rem] text-text-300 text-start;
+        @apply text-[0.5rem] text-start text-text-300;
     }
 
     &__image{
-        @apply grid place-items-center h-[5.625rem] aspect-video bg-blue-400 rounded-xl;
-    }
-
-    &__line{
-        @apply w-0;
-        transition: all 500ms;
+        @apply grid place-items-center rounded-xl bg-blue-400;
     }
 
     &__wrapper{
-        @apply flex justify-between max-h-0 opacity-0;
-        transition: max-height 350ms, opacity 300ms;
+        @apply flex justify-between items-center;
+
+        &--fade{
+            @apply opacity-0 max-h-0;
+            transition: opacity 300ms, max-height 350ms;
+        }
     }
 
     &__button{
-        @apply bg-button-900 px-[18px] py-[3px] font-semibold text-[8px] text-text-300 rounded-md;
+        @apply bg-button-900 px-4 py-1 font-semibold text-[8px] rounded-md text-text-300;
+    }
+
+    &__add-tag{
+        @apply flex p-4 gap-1 flex-col absolute top-[200%] right-[0px] bg-background-800 rounded-lg w-[150px];
+
+        .o-tag{
+            @apply py-1 cursor-pointer;
+        }
+    }
+
+    &__close{
+        @apply text-xs cursor-pointer;
+    }
+
+    &__container{
+        @apply flex flex-wrap gap-1 overflow-y-auto;
     }
 }
 
 .#{$layout-name}{
     @apply h-fit w-full;
+
+    &__content{
+        @apply h-fit;
+    }
+
+    &__image{
+        @apply h-20 aspect-video; 
+    }
+
+    &__line{
+        @apply w-0;
+        transition: width 1s;
+    }
+    
+    // &__wrapper{
+    //     @apply w-full;
+    // }
+
 }

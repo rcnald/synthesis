@@ -2,7 +2,7 @@ $component-name: 'c-body';
 $layout-name: 'l-body';
 
 .#{$component-name}{
-    @apply flex items-center justify-center p-16 bg-background-900 font-main;
+    @apply flex items-center justify-center font-main p-16 bg-background-900;
 }
 
 .#{$layout-name}{

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <title>synthesis</title>
+    </head>
+    <body class="c-body l-body">
+        <main>
+            <div class="c-panel">
+                <div class="c-panel__header">
+                    <span class="c-panel__icon"></span>
+                    <h1 class="c-panel__title">Adicionar novo card</h1>
+                </div>
+
+                <article class="c-card l-card">
+                    <div class="c-card__content l-card__content">
+                        <div class="c-card__header">
+                            <h1 class="c-card__title">Page</h1>
+                            <h2 class="c-card__type">Desktop</h2>
+                        </div>
+                        <ul class="c-card__tags">
+                            <li class="o-tag l-tag o-tag--HTML">HTML</li>
+                            <li class="o-tag l-tag o-tag--JS">JS</li>
+                            <li class="o-tag l-tag o-tag--CSS">CSS</li>
+                        </ul>
+                        <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <picture class="c-card__image l-card__image">
+                            <img class="l-card__icon" src="./assets/icon.svg" alt="">
+                        </picture>
+                    </div>
+                </article>
+
+                <div class="c-panel__wrapper">
+                    <div class="o-input l-input">
+                        <label class="o-input__label" for="">Titulo</label>
+                        <input class="o-input__input" type="text">
+                    </div>
+                    <div class="o-input l-input">
+                        <label class="o-input__label" for="">Subtitulo</label>
+                        <input class="o-input__input" type="text">
+                    </div>
+                    <div class="o-input l-input">
+                        <label class="o-input__label" for="">Descrição</label>
+                        <input class="o-input__input" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-panel l-panel">
+                <h2 class="c-panel__title">tags</h2>
+
+                <ul class="c-card__tags">
+                    <li class="o-tag l-tag o-tag--HTML">HTML</li>
+                    <li class="o-tag l-tag o-tag--JS">JS</li>
+                    <li class="o-tag l-tag o-tag--CSS">CSS</li>
+                    <!-- <li class="o-tag o-tag--add">
+                        tag +
+                        <div class="c-card__add-tag">
+                            <div class="c-card__wrapper l-card__wrapper">
+                                <h3 class="c-card__title c-card__title--small">Escolher tags</h3>
+                                <span class="c-card__close l-card__close"><i class="fa-solid fa-xmark"></i></span>
+                            </div>
+                            <ul class="c-card__container">
+                                <li class="o-tag l-tag o-tag--HTML">HTML</li>
+                                <li class="o-tag l-tag o-tag--JS">JS</li>
+                                <li class="o-tag l-tag o-tag--CSS">CSS</li>
+                            </ul>
+                        </div>
+                    </li> -->
+                </ul>
+
+                <div class="o-file l-file">
+                    <picture class="o-file__icon">
+                        <img src="" alt="">
+                    </picture>
+
+                    <input class="o-file__input" type="file" name="" id="icon-file">
+                    <label class="o-file__button" name="" for="icon-file">Escolher arquivo</label>
+                </div>
+
+                <div class="c-panel__wrapper">
+                    <div class="o-color-picker l-color-picker">
+                        <div class="o-color-picker__title">Escolher
+                            <span class="o-color-picker__title--small">cor do site</span>
+                        </div>
+                        
+                        <input class="o-color-picker__value" type="text">
+                        <input class="o-color-picker__picker" type="color">
+                    </div>
+
+
+                    <div class="c-panel__wrapper">
+                        <div class="o-input l-input">
+                            <label class="o-input__label" for="">Descrição</label>
+                            <input class="o-input__input" type="text">
+                        </div>
+
+                        <hr class="o-line l-card__line">
+
+                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="save-bookmark">
+                        <label for="save-bookmark" class="c-panel__save">Adicionar como favorito</label>
+                    </div>
+                </div>
+
+                <div class="c-panel__wrapper">
+                    <button class="c-panel__button">Voltar</button>
+                    <button class="c-panel__button c-panel__button--purple">Salvar</button>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src="js/main.js"></script>
+</html>

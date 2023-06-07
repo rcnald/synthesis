@@ -5,7 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/main.css">
-        <link el="preconnect" href="https://fonts.googleapis.com">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
         <title>synthesis</title>
@@ -13,7 +12,7 @@
     <body class="c-body l-body">
         <main class="c-main l-main">
             <article class="c-card l-card">
-                <div class="c-card__content">
+                <div class="c-card__content l-card__content">
                     <div class="c-card__header">
                         <h1 class="c-card__title">Page</h1>
                         <h2 class="c-card__type">Desktop</h2>
@@ -22,324 +21,38 @@
                         <li class="o-tag l-tag o-tag--HTML">HTML</li>
                         <li class="o-tag l-tag o-tag--JS">JS</li>
                         <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
+                        <li class="o-tag o-tag--add">
+                            <button id="add-tags-1" aria-expanded="false" aria-label="adicionar mais uma tag ao card" aria-controls="tags-1"> tag + </button>
+                            <div class="c-card__add-tag" id="tags-1" aria-labelledby="add-tags-1">
+                                <div class="c-card__wrapper l-card__wrapper">
+                                    <h3 class="c-card__title c-card__title--small">Escolher tags</h3>
+                                    <span class="c-card__close l-card__close"><i class="fa-solid fa-xmark"></i></span>
+                                </div>
+                                <ul class="c-card__container">
+                                    <li class="o-tag l-tag o-tag--HTML"><button>HTML</button></li>
+                                    <li class="o-tag l-tag o-tag--JS"><button>JS</button></li>
+                                    <li class="o-tag l-tag o-tag--CSS"><button>CSS</button></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                     <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                     <picture class="c-card__image l-card__image">
                         <img class="l-card__icon" src="./assets/icon.svg" alt="">
                     </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
+                    <hr class="o-line l-card__line">
+                    <div class="c-card__wrapper c-card__wrapper--fade">
                         <button class="c-card__button l-button">Visitar</button>
                         <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
                     </div>
                 </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
-            </article>
-            <article class="c-card l-card">
-                <div class="c-card__content">
-                    <div class="c-card__header">
-                        <h1 class="c-card__title">Page</h1>
-                        <h2 class="c-card__type">Desktop</h2>
-                    </div>
-                    <ul class="c-card__tags">
-                        <li class="o-tag l-tag o-tag--HTML">HTML</li>
-                        <li class="o-tag l-tag o-tag--JS">JS</li>
-                        <li class="o-tag l-tag o-tag--CSS">CSS</li>
-                        <li class="o-tag o-tag--add">tag +</li>
-                    </ul>
-                    <p class="c-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <picture class="c-card__image l-card__image">
-                        <img class="l-card__icon" src="./assets/icon.svg" alt="">
-                    </picture>
-    
-                    <hr class="o-line c-card__line">
-    
-                    <div class="c-card__wrapper">
-                        <button class="c-card__button l-button">Visitar</button>
-                        <input class="o-save fa-regular fa-bookmark" type="checkbox" name="" id="">
-                    </div>
-                </div>
+                <a href="./add-card.html">a</a>
             </article>
         </main>
 
         <button class="o-widget l-widget">+</button>
+
+        
     </body>
     <script src="js/main.js"></script>
 </html>
