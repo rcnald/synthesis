@@ -1,0 +1,17 @@
+$component-name: 'c-panel';
+
+.#{$component-name}{
+    @apply flex flex-col items-center bg-background-800 rounded-2xl w-full max-w-[500px] py-8;
+
+    &__wrapper{
+        @apply flex flex-col gap-5;
+
+        &--small{
+            @apply max-w-[14.375rem] gap-2
+        }
+    }
+
+    &__header{
+        @apply flex items-center gap-3 text-text-100 font-bold text-xl;
+    }
+}

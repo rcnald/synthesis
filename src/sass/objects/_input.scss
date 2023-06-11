@@ -1,0 +1,17 @@
+$object-name: 'o-input';
+
+.#{$object-name}{
+    @apply flex flex-col text-xs gap-1;
+
+    &__label{
+        @apply font-medium text-text-300;
+    }
+
+    &__input{
+        @apply border border-text-300 bg-background-800 rounded-md px-4 py-2 text-text-300;
+
+        &::placeholder{
+            @apply text-text-500;
+        }
+    }
+}

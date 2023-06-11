@@ -1,10 +1,5 @@
 $object-name: 'o-line';
-$layout-name: 'l-line';
 
 .#{$object-name}{
     @apply border-[#333539];
-}
-
-.#{$layout-name}{
-
 }

@@ -1,10 +1,10 @@
 $component-name: 'c-card';
-$layout-name: 'l-card';
 
 .#{$component-name}{
-    @apply bg-background-800 pb-5 rounded-xl;
+    @apply bg-background-800 pb-5 rounded-xl h-fit w-full;
 
-    &:is(:hover,:focus-within){
+    &:is(:hover,:focus-within),
+    &:has([open]){
         .#{$component-name}{
             &__wrapper{
                 &--fade{
@@ -14,7 +14,7 @@ $layout-name: 'l-card';
             }
         }
 
-        .#{$layout-name}{
+        .#{$component-name}{
             &__line{
                 @apply w-full;
                 transition: width 500ms;
@@ -23,7 +23,7 @@ $layout-name: 'l-card';
     }
 
     &__content{
-        @apply relative flex flex-col gap-2 p-4 rounded-xl bg-background-700;
+        @apply relative flex flex-col items-center gap-2 p-4 rounded-xl bg-background-700 h-fit;
         transition: all 1s;
     }
 
@@ -52,7 +52,7 @@ $layout-name: 'l-card';
     }
 
     &__image{
-        @apply grid place-items-center rounded-xl bg-blue-400;
+        @apply grid place-items-center rounded-xl bg-blue-400 h-20 aspect-video;
     }
 
     &__wrapper{
@@ -66,6 +66,11 @@ $layout-name: 'l-card';
 
     &__button{
         @apply bg-button-900 px-4 py-1 font-semibold text-[8px] rounded-md text-text-300;
+        transition: all 200ms;
+        
+        &:hover{
+            filter: brightness(1.5);
+        }
     }
 
     &__add-tag{
@@ -78,31 +83,19 @@ $layout-name: 'l-card';
 
     &__close{
         @apply text-xs cursor-pointer;
+        transition: 200ms;
+
+        &:hover{
+            filter: brightness(1.5)
+        }
     }
 
     &__container{
-        @apply flex flex-wrap gap-1 overflow-y-auto;
-    }
-}
-
-.#{$layout-name}{
-    @apply h-fit w-full;
-
-    &__content{
-        @apply h-fit;
-    }
-
-    &__image{
-        @apply h-20 aspect-video; 
+        @apply flex flex-wrap gap-1;
     }
 
     &__line{
         @apply w-0;
         transition: width 1s;
     }
-    
-    // &__wrapper{
-    //     @apply w-full;
-    // }
-
 }

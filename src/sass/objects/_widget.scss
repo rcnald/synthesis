@@ -1,5 +1,4 @@
 $object-name: 'o-widget';
-$layout-name: 'l-';
 
 .#{$object-name}{
     @apply bg-button-900 w-[50px] aspect-square fixed bottom-[10px] right-[10px] rounded-[50%] text-3xl;
@@ -8,8 +7,4 @@ $layout-name: 'l-';
     &:hover{
         @apply bg-button-100 rounded-[20px] text-white;
     }
-}
-
-.#{$layout-name}{
-
 }

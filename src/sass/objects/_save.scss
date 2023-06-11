@@ -1,10 +1,5 @@
 $object-name: 'o-save';
-$layout-name: 'l-save';
 
 .#{$object-name}{
     @apply appearance-none text-text-300 cursor-pointer;
-
-}
-.#{$layout-name}{
-
 }

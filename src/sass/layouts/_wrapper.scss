@@ -1,0 +1,5 @@
+$layout-name: 'l-wrapper';
+
+.#{$layout-name}{
+    @apply max-w-[330px] w-full flex flex-col;
+}

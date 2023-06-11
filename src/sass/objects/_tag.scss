@@ -1,11 +1,18 @@
 $object-name: 'o-tag';
-$layout-name: 'l-tag';
 
 .#{$object-name}{
-    @apply flex justify-center rounded-lg self-center text-[0.5rem] font-medium bg-[var(--tag-color-background)] text-[var(--tag-color-text)];
+    @apply flex self-center text-[0.5rem] font-medium text-[var(--tag-color-text)] w-10 leading-normal;
 
     &--add{
-        @apply relative border border-dashed whitespace-nowrap border-text-300 leading-[0.5rem] px-[0.1563rem] text-[0.375rem] bg-transparent text-text-300;
+        @apply relative whitespace-nowrap leading-[0.5rem] text-text-300 text-[0.375rem] bg-transparent w-fit;
+
+        &:has([open]),
+        .#{$object-name}__button--add:hover{
+            .#{$object-name}__button--add{
+                @apply ring-transparent;
+                filter: brightness(1.5);
+            }
+        }
     }
 
     &--JS{
@@ -22,8 +29,55 @@ $layout-name: 'l-tag';
         --tag-color-text: var(--CSS-color-text);
         --tag-color-background: var(--CSS-color-background);
     }
-}
 
-.#{$layout-name}{
-    @apply w-10;
+    &__button{
+        @apply flex items-center justify-center rounded-lg gap-[2px] bg-[var(--tag-color-background)] w-full;
+        transition: all 200ms;
+
+        &:hover{
+            @apply ring-[1px] ring-[var(--tag-color-text)];
+    
+            &:has(.#{$object-name}__close){
+                .#{$object-name}__name{
+                    transform: translateX(0em);
+                    transition: transform 300ms;
+                }
+            }
+    
+            .#{$object-name}__close{
+                @apply opacity-100;
+                transform: translateX(0em);
+                transition: transform 400ms, opacity 700ms;
+            }
+        }
+
+        &--square{
+            @apply flex px-7 py-1 text-xs font-bold bg-[var(--tag-color-background)];
+        }
+
+        &--add{
+            @apply border border-dashed border-text-300 text-text-300 px-[0.1563rem] bg-transparent;
+
+            &.#{$object-name}__button--square{
+                @apply bg-background-700 border-none p-[6.5px]
+            }
+        }
+
+        &:has(.#{$object-name}__close){
+            .#{$object-name}__name{
+                transform: translateX(.4em);
+                transition: transform 400ms;
+            }
+        }
+    }
+
+    &__name{
+        @apply font-main font-medium;
+    }
+
+    &__close{
+        @apply opacity-0;
+        transform: translateX(-1em);
+        transition: transform 500ms, opacity 200ms;
+    }
 }
