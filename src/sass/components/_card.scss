@@ -23,8 +23,12 @@ $component-name: 'c-card';
     }
 
     &__content{
-        @apply relative flex flex-col items-center gap-2 p-4 rounded-xl bg-background-700 h-fit;
+        @apply relative flex flex-col gap-2 p-4 rounded-xl bg-background-700 h-fit;
         transition: all 1s;
+
+        &--center{
+            @apply items-center;
+        }
     }
 
     &__header{
@@ -44,7 +48,19 @@ $component-name: 'c-card';
     }
 
     &__tags{
-        @apply flex gap-1 flex-wrap;
+        @apply flex gap-1 w-full;
+    }
+
+    &__added{
+        @apply w-full relative;
+    }
+
+    &__added-tags{
+        @apply flex gap-1 p-[2px] w-full absolute left-0 overflow-x-auto;
+
+        &::-webkit-scrollbar{
+            width: 0;
+        }
     }
 
     &__description{
@@ -56,7 +72,7 @@ $component-name: 'c-card';
     }
 
     &__wrapper{
-        @apply flex justify-between items-center;
+        @apply flex justify-between items-center w-full;
 
         &--fade{
             @apply opacity-0 max-h-0;
@@ -79,11 +95,19 @@ $component-name: 'c-card';
         .o-tag{
             @apply py-1 cursor-pointer;
         }
+
+        &--square{
+            @apply bg-background-700 w-[200px] top-[110%];
+        }
     }
 
     &__close{
         @apply text-xs cursor-pointer;
         transition: 200ms;
+
+        &--square{
+            @apply text-base;
+        }
 
         &:hover{
             filter: brightness(1.5)
@@ -91,7 +115,7 @@ $component-name: 'c-card';
     }
 
     &__container{
-        @apply flex flex-wrap gap-1;
+        @apply flex flex-wrap gap-1 justify-between;
     }
 
     &__line{

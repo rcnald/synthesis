@@ -12,6 +12,7 @@ module.exports = {
           '900':'var(--theme-color-background-900)',
           '800':'var(--theme-color-background-800)',
           '700':'var(--theme-color-background-700)',
+          '600':'var(--theme-color-background-600)',
         },
         'text':{
           '500':'var(--theme-color-text-500)',

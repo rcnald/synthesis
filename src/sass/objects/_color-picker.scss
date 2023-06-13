@@ -1,0 +1,36 @@
+$object-name: 'o-color-picker';
+
+.#{$object-name}{
+    @apply flex flex-col p-3 justify-between items-center bg-background-700 max-w-[140px] rounded-lg;
+
+    &__title{
+        @apply flex flex-col text-center text-sm font-semibold text-text-100;
+
+        &--small{
+            @apply font-medium text-[10px];
+        }
+    }
+
+    &__picker{
+        @apply w-[100px] rounded-lg;
+    }
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	border: none;
+    border-radius: 10px;
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+    border-radius: 10px;
+    padding: 0;
+}

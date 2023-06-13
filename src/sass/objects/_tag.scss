@@ -1,7 +1,7 @@
 $object-name: 'o-tag';
 
 .#{$object-name}{
-    @apply flex self-center text-[0.5rem] font-medium text-[var(--tag-color-text)] w-10 leading-normal;
+    @apply flex self-center text-[0.5rem] font-medium text-[var(--tag-color-text)] leading-normal;
 
     &--add{
         @apply relative whitespace-nowrap leading-[0.5rem] text-text-300 text-[0.375rem] bg-transparent w-fit;
@@ -31,7 +31,7 @@ $object-name: 'o-tag';
     }
 
     &__button{
-        @apply flex items-center justify-center rounded-lg gap-[2px] bg-[var(--tag-color-background)] w-full;
+        @apply flex items-center px-1 justify-center rounded-lg gap-[5px] bg-[var(--tag-color-background)];
         transition: all 200ms;
 
         &:hover{
@@ -52,20 +52,27 @@ $object-name: 'o-tag';
         }
 
         &--square{
-            @apply flex px-7 py-1 text-xs font-bold bg-[var(--tag-color-background)];
-        }
+            @apply flex text-base py-1 font-bold bg-[var(--tag-color-background)] min-w-[80px];
 
+        }
+        
         &--add{
             @apply border border-dashed border-text-300 text-text-300 px-[0.1563rem] bg-transparent;
+            --tag-color-text: #fff;
+
+            &:hover{
+                @apply ring-transparent;
+                filter: brightness(1.5);
+            }
 
             &.#{$object-name}__button--square{
-                @apply bg-background-700 border-none p-[6.5px]
+                @apply bg-background-600 border-none p-[6.5px] min-w-0 aspect-square h-[34px] shrink-0;
             }
         }
 
         &:has(.#{$object-name}__close){
             .#{$object-name}__name{
-                transform: translateX(.4em);
+                transform: translateX(.6em);
                 transition: transform 400ms;
             }
         }

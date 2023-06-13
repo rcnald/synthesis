@@ -1,0 +1,26 @@
+$object-name: 'o-file';
+
+.#{$object-name}{
+    @apply flex w-full bg-background-700 p-2 rounded-lg;
+
+    &__button{
+        @apply px-7 py-1.5 font-medium text-[10px] text-text-500 border border-background-900 bg-background-700 rounded-md cursor-pointer;
+        transition: all 300ms;
+
+        &:hover{
+            filter: brightness(1.5);
+        }
+    }
+
+    &__content{
+        @apply flex flex-row-reverse items-center justify-between w-full px-2;
+    }
+
+    &__file-name{
+        @apply text-sm font-normal text-text-100
+    }
+
+    &__icon{
+        @apply p-3 bg-red-600 rounded-lg bg-background-600;
+    }
+}   
