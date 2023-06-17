@@ -3,7 +3,7 @@ $component-name: 'c-card';
 .#{$component-name}{
     @apply bg-background-800 pb-5 rounded-xl h-fit w-full;
 
-    &:is(:hover,:focus-within),
+    &:is(:hover,:focus,:focus-within),
     &:has([open]){
         .#{$component-name}{
             &__wrapper{
@@ -48,7 +48,11 @@ $component-name: 'c-card';
     }
 
     &__tags{
-        @apply flex gap-1 w-full;
+        @apply flex gap-1 w-full flex-wrap;
+
+        &--row{
+            @apply flex-nowrap;
+        }
     }
 
     &__added{
@@ -84,20 +88,20 @@ $component-name: 'c-card';
         @apply bg-button-900 px-4 py-1 font-semibold text-[8px] rounded-md text-text-300;
         transition: all 200ms;
         
-        &:hover{
+        &:is(:hover,:focus,:focus-within){
             filter: brightness(1.5);
         }
     }
 
     &__add-tag{
-        @apply flex p-4 gap-1 flex-col absolute top-[200%] right-[0px] bg-background-800 rounded-lg w-[150px];
+        @apply flex p-4 gap-1 flex-col absolute top-[200%] -right-[50px] bg-background-800 rounded-lg w-[150px];
 
         .o-tag{
             @apply py-1 cursor-pointer;
         }
 
         &--square{
-            @apply bg-background-700 w-[200px] top-[110%];
+            @apply bg-background-700 w-[200px] top-[110%] right-0;
         }
     }
 
@@ -109,7 +113,7 @@ $component-name: 'c-card';
             @apply text-base;
         }
 
-        &:hover{
+        &:is(:hover,:focus,:focus-within){
             filter: brightness(1.5)
         }
     }

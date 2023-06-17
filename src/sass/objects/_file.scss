@@ -1,14 +1,16 @@
+@use '../abstract/' as *;
+
 $object-name: 'o-file';
 
 .#{$object-name}{
     @apply flex w-full bg-background-700 p-2 rounded-lg;
 
     &__button{
-        @apply px-7 py-1.5 font-medium text-[10px] text-text-500 border border-background-900 bg-background-700 rounded-md cursor-pointer;
+        @apply basis-[130px] py-1.5 font-medium text-[10px] text-text-500 border border-background-900 bg-background-700 rounded-md text-center cursor-pointer;
         transition: all 300ms;
 
-        &:hover{
-            filter: brightness(1.5);
+        &:is(:hover,:focus,:focus-within){
+            filter: brightness(1.2);
         }
     }
 
@@ -17,10 +19,18 @@ $object-name: 'o-file';
     }
 
     &__file-name{
-        @apply text-sm font-normal text-text-100
+        @apply text-sm font-normal text-text-100 cursor-pointer;
+
+        @include breakpoint(max,sm){
+           @apply hidden;
+        };
     }
 
     &__icon{
-        @apply p-3 bg-red-600 rounded-lg bg-background-600;
+        @apply flex p-3 bg-red-600 rounded-lg bg-background-600;
+
+        img{
+            @apply max-w-none;
+        }
     }
 }   

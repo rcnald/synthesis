@@ -4,7 +4,7 @@ $object-name: 'o-widget';
     @apply grid place-items-center bg-button-900 w-[50px] aspect-square fixed bottom-[10px] right-[10px] rounded-[50%] text-3xl;
     transition: border-radius 250ms, background-color 500ms, color 500ms;
 
-    &:hover{
+    &:is(:hover,:focus,:focus-within){
         @apply bg-button-100 rounded-[20px] text-white;
     }
 }

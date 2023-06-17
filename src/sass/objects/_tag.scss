@@ -7,7 +7,7 @@ $object-name: 'o-tag';
         @apply relative whitespace-nowrap leading-[0.5rem] text-text-300 text-[0.375rem] bg-transparent w-fit;
 
         &:has([open]),
-        .#{$object-name}__button--add:hover{
+        .#{$object-name}__button--add:is(:hover,:focus,:focus-within){
             .#{$object-name}__button--add{
                 @apply ring-transparent;
                 filter: brightness(1.5);
@@ -34,7 +34,7 @@ $object-name: 'o-tag';
         @apply flex items-center px-1 justify-center rounded-lg gap-[5px] bg-[var(--tag-color-background)];
         transition: all 200ms;
 
-        &:hover{
+        &:is(:hover,:focus,:focus-within){
             @apply ring-[1px] ring-[var(--tag-color-text)];
     
             &:has(.#{$object-name}__close){
@@ -60,7 +60,7 @@ $object-name: 'o-tag';
             @apply border border-dashed border-text-300 text-text-300 px-[0.1563rem] bg-transparent;
             --tag-color-text: #fff;
 
-            &:hover{
+            &:is(:hover,:focus,:focus-within){
                 @apply ring-transparent;
                 filter: brightness(1.5);
             }

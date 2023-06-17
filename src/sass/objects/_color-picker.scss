@@ -1,10 +1,16 @@
+@use '../abstract/' as *;
+
 $object-name: 'o-color-picker';
 
 .#{$object-name}{
     @apply flex flex-col p-3 justify-between items-center bg-background-700 max-w-[140px] rounded-lg;
 
+    @include breakpoint(max,md){
+       @apply max-w-none;
+    };
+
     &__title{
-        @apply flex flex-col text-center text-sm font-semibold text-text-100;
+        @apply flex flex-col text-center text-sm font-semibold text-text-100 cursor-pointer;
 
         &--small{
             @apply font-medium text-[10px];
@@ -12,7 +18,12 @@ $object-name: 'o-color-picker';
     }
 
     &__picker{
-        @apply w-[100px] rounded-lg;
+        @apply w-[100px] rounded-lg cursor-pointer;
+        transition: all 200ms;
+
+        &:is(:hover,:focus,:focus-within){
+            @apply outline outline-text-300 outline-2
+        }
     }
 }
 

@@ -9,9 +9,14 @@ $object-name: 'o-input';
 
     &__input{
         @apply border border-text-300 bg-background-800 rounded-md px-4 py-2 text-text-300;
+        transition: all 300ms;
 
         &::placeholder{
             @apply text-text-500;
+        }
+
+        &:is(:hover,:focus,:focus-within){
+            filter: brightness(1.2);
         }
     }
 }
