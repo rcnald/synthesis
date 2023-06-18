@@ -94,7 +94,16 @@ $component-name: 'c-card';
     }
 
     &__add-tag{
-        @apply flex p-4 gap-1 flex-col absolute top-[200%] -right-[50px] bg-background-800 rounded-lg w-[150px];
+        @apply hidden p-4 gap-1 flex-col absolute top-[200%] -right-[50px] bg-background-800 rounded-lg w-[150px] opacity-0 origin-top;
+        transform: translateY(-10%);
+
+        &[open]{
+            @apply flex has-fade-in;
+        }
+
+        &[closing]{
+            @apply flex has-pop;
+        }
 
         .o-tag{
             @apply py-1 cursor-pointer;

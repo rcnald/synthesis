@@ -53,12 +53,15 @@ $object-name: 'o-tag';
 
         &--square{
             @apply flex text-base py-1 font-bold bg-[var(--tag-color-background)] min-w-[80px];
-
         }
         
         &--add{
             @apply border border-dashed border-text-300 text-text-300 px-[0.1563rem] bg-transparent;
             --tag-color-text: #fff;
+
+            & img{
+                @apply pointer-events-none;
+            }
 
             &:is(:hover,:focus,:focus-within){
                 @apply ring-transparent;

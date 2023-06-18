@@ -1,0 +1,10 @@
+@keyframes has-fade-in {
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.has-fade-in{
+    animation: has-fade-in 300ms forwards;
+}

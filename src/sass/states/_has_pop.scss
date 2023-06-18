@@ -1,0 +1,14 @@
+@keyframes has-pop {
+    0%{
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.has-pop{
+    animation: has-pop 300ms forwards;
+}
