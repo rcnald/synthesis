@@ -72,7 +72,7 @@ $component-name: 'c-card';
     }
 
     &__image{
-        @apply grid place-items-center rounded-xl bg-blue-400 h-20 aspect-video;
+        @apply grid place-items-center rounded-xl bg-[var(--image-color)] h-20 aspect-video;
     }
 
     &__wrapper{
@@ -128,7 +128,7 @@ $component-name: 'c-card';
     }
 
     &__container{
-        @apply flex flex-wrap gap-1 justify-between;
+        @apply flex flex-wrap gap-1;
     }
 
     &__line{
