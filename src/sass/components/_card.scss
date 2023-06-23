@@ -68,7 +68,10 @@ $component-name: 'c-card';
     }
 
     &__description{
-        @apply text-[0.5rem] text-start text-text-300;
+        --max-line: 3;
+        --line-height: 12px;
+        --max-letter:108;   
+        @apply text-[0.5rem] text-start leading-3 text-text-300 min-h-[calc(var(--max-line)*var(--line-height))] max-h-[calc(var(--max-line)*var(--line-height))] break-words;
     }
 
     &__image{
