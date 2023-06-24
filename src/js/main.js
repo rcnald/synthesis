@@ -1,4 +1,5 @@
 const cardMain = document.getElementsByClassName('js-card-container')[0]
+const cardMainPreview = document.getElementsByClassName('js-card-container')[0]
 const card = document.getElementsByClassName('js-card')
 
 const closeAddTag = (addTag, isNotOnlyOne) => {
@@ -58,9 +59,9 @@ closeAddTagTriggerEvents('focusin','click')
 
 class WebCard {
     constructor(title, subtitle, description, tags, icon, color, link, isFavorite){
-        this.title = title
-        this.subtitle = subtitle
-        this.description = description
+        this.title = title || 'titulo'
+        this.subtitle = subtitle || 'subtitulo'
+        this.description = description || 'descricão'
         this.tags = tags || []
         this.icon = icon || './assets/icon.svg'
         this.color = color || '#111221'
@@ -72,6 +73,9 @@ class WebCard {
 const addedTags = ['HTML','CSS','JS']
 
 const cardes = []
+const cardPre = []
+
+cardPre.push(new WebCard())
 
 cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
 cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
@@ -84,7 +88,7 @@ cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/ico
 cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
 cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
 
-const createTags = (tagType, hasCloseButton) => {
+const createTags = (tagType, hasCloseButton, isSquare) => {
     const tag = document.createElement('li')
     tag.className = `o-tag o-tag--${tagType}`
 
@@ -92,7 +96,7 @@ const createTags = (tagType, hasCloseButton) => {
     tagNameBlind.className = "sr-only"
 
     const tagButton = document.createElement('button')
-    tagButton.className = "o-tag__button js-tag"
+    tagButton.className = `o-tag__button ${isSquare ? `o-tag__button--square` : ``} js-tag`
     setAttributes(tagButton, ['aria-label',`Remover ${tagType} da lista de tags`], ['title',`Remover ${tagType} da lista de tags`])
 
     const tagName = document.createElement('span')
@@ -231,6 +235,17 @@ const createCards = (card, i) => {
     return cards
 }
 
+const createPreview = () => {
+    const taga = document.getElementsByClassName('js-tags-square')[0]
+    let stillTags = addedTags.filter(tag => !cardPre[0].tags.includes(tag));
+
+    console.log(document.getElementsByClassName('js-tags-square')[0])
+
+    stillTags.forEach(tag => {
+        taga.appendChild(createTags(tag,false,true))
+    })
+}
+
 const addCards = () =>{
 
 }
@@ -242,6 +257,12 @@ const renderCards = () => {
         document.getElementsByClassName('js-card-container-1')[0].appendChild(createCards(card,i))
     })
 }
+
+const renderPreview = () => {
+    
+}
+
+createPreview()
 
 cardMain.addEventListener('click', e => {
     const target = e.target
@@ -283,5 +304,47 @@ cardMain.addEventListener('click', e => {
 
     if(actions[action]) actions[action]()
 })
+
+const squareTags = document.getElementsByClassName('js-tags-square')[0]
+
+
+
+// cardMainPreview.addEventListener('click', e => {
+//     const target = e.target
+//     const action = e.target.getAttribute('data-action')
+
+//     if(!action) return
+
+//     const actions = {
+//         addTagOpen(){
+//             let addTags = document.getElementsByClassName('js-add-tag')
+//             addTags = [...addTags]
+
+//             addTags.forEach(tag => {
+//                 closeAddTag(tag,true)
+//             }) 
+
+//             const currentAddTag = currentCard.getElementsByClassName('js-add-tag')[0]
+//             currentAddTag.setAttribute('open','')
+//             target.setAttribute('aria-expanded','true')
+//         },
+//         addTagClose(){
+//             const currentAddTag = currentCard.getElementsByClassName('js-add-tag')[0]
+//             closeAddTag(currentAddTag)
+//         },
+//         addTagCard(){
+//             const currentTag = target.getAttribute('data-tagname')
+//             cardes[currentCardIndex].tags.push(currentTag)
+//             renderCards()
+//         },
+//         removeTagCard(){
+//             const currentTag = target.getAttribute('data-tagname')
+//             cardes[currentCardIndex].tags.splice(cardes[currentCardIndex].tags.indexOf(currentTag),1)
+//             renderCards()
+//         }
+//     }
+
+//     if(actions[action]) actions[action]()
+// })
 
 renderCards()
