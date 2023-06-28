@@ -78,6 +78,11 @@ $component-name: 'c-card';
         @apply grid place-items-center rounded-xl bg-[var(--image-color)] h-20 aspect-video;
     }
 
+    &__icon{
+        @apply max-w-[30px] max-h-[30px] aspect-square;
+        object-fit: contain
+    }
+
     &__wrapper{
         @apply flex justify-between items-center w-full;
 

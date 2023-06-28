@@ -2,5 +2,6 @@
 @use './main' as *;
 @use './card' as *;
 @use './panel' as *;
+@use './modal' as *;
 
 @tailwind components;

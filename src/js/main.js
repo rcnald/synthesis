@@ -1,6 +1,12 @@
 const cardMain = document.getElementsByClassName('js-card-container')[0]
-const cardMainPreview = document.getElementsByClassName('js-card-container')[0]
 const card = document.getElementsByClassName('js-card')
+const openCardAdd = document.getElementsByClassName('js-open-add-card')[0]
+const modal = document.getElementsByClassName('js-modal')[0]
+const image = document.getElementsByClassName('js-preview-image')[0]
+const color = document.getElementsByClassName('js-color')[0]
+let inputs = document.getElementsByClassName('js-input')
+inputs = [...inputs]
+const save = document.getElementsByClassName('js-card-save')[0]
 
 const closeAddTag = (addTag, isNotOnlyOne) => {
     addTag.removeAttribute('open')
@@ -72,20 +78,10 @@ class WebCard {
 
 const addedTags = ['HTML','CSS','JS']
 
+let cardPreview = {}
+
 const cardes = []
-const cardPre = []
 
-cardPre.push(new WebCard())
-
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
-cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
 cardes.push(new WebCard('Figma','Desktop','no description',['JS'], './assets/icon.svg', '#211221', 'https://link', true))
 
 const createTags = (tagType, hasCloseButton, isSquare) => {
@@ -108,14 +104,14 @@ const createTags = (tagType, hasCloseButton, isSquare) => {
     tagButton.appendChild(tagName)
 
     if(hasCloseButton){
-        setAttributes(tagButton, ['data-action','removeTagCard'], ['data-tagName',`${tagType}`])
+        setAttributes(tagButton, [`${isSquare ? `data-action` : `data-action`}`,'removeTagCard'], ['data-tagName',`${tagType}`])
 
         const tagClose = document.createElement('i')
         tagClose.className = "o-tag__close fa-solid fa-xmark"
 
         tagButton.appendChild(tagClose)
     }else{
-        setAttributes(tagButton, ['data-action','addTagCard'], ['data-tagName',`${tagType}`])
+        setAttributes(tagButton, [`${isSquare ? `data-action` : `data-action`}`,'addTagCard'], ['data-tagName',`${tagType}`])
     }
 
     return tag
@@ -172,16 +168,9 @@ const createCards = (card, i) => {
     const cardContainer = document.createElement('ul')
     cardContainer.className = "c-card__container"
 
-    let addT = [...addedTags]
+    let remainTags = addedTags.filter(tag => !card.tags.includes(tag));
 
-    let adT = addT.filter(tag => !card.tags.includes(tag));
-    // let adT = addT.filter(tag => {
-    //     return !card.tags.filter(a => {
-    //        return a === tag
-    //     }).length
-    // });
-
-    adT.forEach(tag => {
+    remainTags.forEach(tag => {
         cardContainer.appendChild(createTags(tag))
     })
 
@@ -205,12 +194,12 @@ const createCards = (card, i) => {
 
     const cardVisit = document.createElement('a')
     cardVisit.className = "c-card__button"
-    setAttributes(cardVisit, ['aria-label',`Visitar site ${card.title}`], ['href',`${card.link}`])
+    setAttributes(cardVisit, ['aria-label',`Visitar site ${card.title}`], ['href',`${card.link}`], ['target','_blank'])
     cardVisit.textContent = "Visitar"
 
     const save = document.createElement('input')
-    save.className = `o-save fa-regular fa-bookmark`
-    setAttributes(save, ['aria-label',`adicionar ${card.title} como favorito`], ['aria-checked',`false`], ['type','checkbox'])
+    save.className = `o-save ${card.isFavorite ? `fa-solid` : `fa-regular`} fa-regular fa-bookmark`
+    setAttributes(save,['data-action','save'], ['aria-label',`adicionar ${card.title} como favorito`], ['aria-checked',`false`], ['type','checkbox'])
 
     cards.appendChild(cardContent)
     cardContent.appendChild(cardHeader)
@@ -235,38 +224,163 @@ const createCards = (card, i) => {
     return cards
 }
 
-const createPreview = () => {
-    const taga = document.getElementsByClassName('js-tags-square')[0]
-    let stillTags = addedTags.filter(tag => !cardPre[0].tags.includes(tag));
+const createTagsPreview = () => {
+    const tagContainer = document.getElementsByClassName('js-tag-container')[0]
+    const containerTags = document.getElementsByClassName('js-tags-square')[0]
+    const tags = document.getElementsByClassName('js-container-tags-square')[0]
+    const title = document.getElementsByClassName('js-card-title')[0]
+    const subtitle = document.getElementsByClassName('js-card-subtitle')[0]
+    const description = document.getElementsByClassName('js-card-description')[0]
 
-    console.log(document.getElementsByClassName('js-tags-square')[0])
+    tagContainer.innerHTML = ""
+    containerTags.innerHTML = ""
+    tags.innerHTML = ""
 
-    stillTags.forEach(tag => {
-        taga.appendChild(createTags(tag,false,true))
+    if(!cardPreview.title) cardPreview.title = 'Title'
+    title.textContent = cardPreview.title
+
+    if(!cardPreview.subtitle) cardPreview.subtitle = 'Type'
+    subtitle.textContent = cardPreview.subtitle
+
+    if(!cardPreview.description) cardPreview.description = 'Here you can write, a basic description about the website'
+    description.textContent = cardPreview.description
+
+    cardPreview.tags.forEach(tag => {
+        tags.appendChild(createTags(tag,true,true))
+        tagContainer.appendChild(createTags(tag))
+    })
+
+    image.style = `--image-color:${cardPreview.color}`
+
+    let remainTags = addedTags.filter(tag => !cardPreview.tags.includes(tag));
+
+    remainTags.forEach(tag => {
+        containerTags.appendChild(createTags(tag,false,true))
     })
 }
 
-const addCards = () =>{
-
-}
-
 const renderCards = () => {
-    document.getElementsByClassName('js-card-container-1')[0].innerHTML = ""
+    cardMain.innerHTML = ""
 
     cardes.forEach((card,i) => {
-        document.getElementsByClassName('js-card-container-1')[0].appendChild(createCards(card,i))
+        cardMain.appendChild(createCards(card,i))
     })
 }
 
 const renderPreview = () => {
     
+
+    createTagsPreview()
 }
 
-createPreview()
+openCardAdd.addEventListener('click',() => {
+    cardPreview = new WebCard('Title','Type','Here you can write, a basic description about the website',[],'./assets/icon.svg','#60a5fa','https://github/rcnald',false)
+   
+    const iconName = document.getElementsByClassName('js-icon-name')[0]
+    setAttributes(iconName,['aria-label',"Nenhum ícone selecionado"])
+    iconName.textContent = "Nenhum icone selecionado"
+
+    let defaultTexts = ['title','subtitle','description']
+    defaultTexts.forEach(text => {
+        modal.getElementsByClassName(`js-card-${text}`)[0].textContent = cardPreview[text]
+    })
+
+    image.style = `--image-color:${cardPreview.color}`
+    color.value = `${cardPreview.color}`
+    save.classList.toggle(`${cardPreview.isFavorite ? `fa-solid` : `fa-regular`}`)
+    inputs.forEach(input => {
+        input.value = ""
+    })
+
+    modal.showModal()
+    renderPreview()
+})
+
+modal.addEventListener('cancel', (event) => {
+    event.preventDefault();
+})
+
+modal.addEventListener('click', e => {
+    const target = e.target
+    const action = target.getAttribute('data-action')
+
+    let panel = e.target.closest('.js-panel')
+
+    const actions = {
+        closeModal(){
+            modal.close()
+        },
+        addTagOpen(){
+            const AddTag = panel.getElementsByClassName('js-add-tag')[0]
+            AddTag.setAttribute('open','')
+            target.setAttribute('aria-expanded','true')
+        },
+        addTagClose(){
+            const AddTag = panel.getElementsByClassName('js-add-tag')[0]
+            closeAddTag(AddTag)
+        },
+        addTagCard(){
+            const tagName = target.getAttribute('data-tagname')
+            cardPreview.tags.push(tagName)
+            renderPreview()
+        },
+        removeTagCard(){
+            const tagName = target.getAttribute('data-tagname')
+            cardPreview.tags.splice(cardPreview.tags.indexOf(tagName),1)
+            renderPreview()
+        },
+        save(){
+            cardes.push(cardPreview)
+            modal.close()
+            renderCards()
+        }
+    }
+
+    if(actions[action]) actions[action]()
+})
+
+modal.addEventListener('input', e => {
+    const target = e.target
+    const action = target.getAttribute('data-action')
+    const text = target.getAttribute('data-text')
+
+    const actions = {
+        input(){
+            cardPreview[text] = target.value
+        },
+        color(){
+            cardPreview.color = target.value
+        },
+        icon(){
+            const [file] = target.files
+            cardPreview.icon = URL.createObjectURL(file)
+            
+            document.getElementsByClassName('js-preview-icon')[0].src = URL.createObjectURL(file)
+
+            const iconName = document.getElementsByClassName('js-icon-name')[0]
+            setAttributes(iconName,['aria-label',`${target.files[0].name} selecionado`])
+            iconName.textContent = `${target.files[0].name}`
+        },
+        favorite(){
+            cardPreview.isFavorite = !cardPreview.isFavorite
+            if(cardPreview.isFavorite){
+                save.classList.add(`fa-solid`)
+                save.classList.remove(`fa-regular`)
+            }else{
+                save.classList.remove(`fa-solid`)
+                save.classList.add(`fa-regular`)
+            }
+        }
+    }
+
+    if(actions[action]) actions[action]()
+
+    renderPreview()
+})
 
 cardMain.addEventListener('click', e => {
     const target = e.target
-    const action = e.target.getAttribute('data-action')
+    const action = target.getAttribute('data-action')
 
     if(!action) return
 
@@ -277,12 +391,12 @@ cardMain.addEventListener('click', e => {
         addTagOpen(){
             let addTags = document.getElementsByClassName('js-add-tag')
             addTags = [...addTags]
-
+            
             addTags.forEach(tag => {
                 closeAddTag(tag,true)
             }) 
-
-            const currentAddTag = currentCard.getElementsByClassName('js-add-tag')[0]
+            
+            let currentAddTag = currentCard.getElementsByClassName('js-add-tag')[0]
             currentAddTag.setAttribute('open','')
             target.setAttribute('aria-expanded','true')
         },
@@ -299,52 +413,14 @@ cardMain.addEventListener('click', e => {
             const currentTag = target.getAttribute('data-tagname')
             cardes[currentCardIndex].tags.splice(cardes[currentCardIndex].tags.indexOf(currentTag),1)
             renderCards()
+        },
+        save(){
+            cardes[currentCardIndex].isFavorite = !cardes[currentCardIndex].isFavorite
+            renderCards()
         }
     }
 
     if(actions[action]) actions[action]()
 })
-
-const squareTags = document.getElementsByClassName('js-tags-square')[0]
-
-
-
-// cardMainPreview.addEventListener('click', e => {
-//     const target = e.target
-//     const action = e.target.getAttribute('data-action')
-
-//     if(!action) return
-
-//     const actions = {
-//         addTagOpen(){
-//             let addTags = document.getElementsByClassName('js-add-tag')
-//             addTags = [...addTags]
-
-//             addTags.forEach(tag => {
-//                 closeAddTag(tag,true)
-//             }) 
-
-//             const currentAddTag = currentCard.getElementsByClassName('js-add-tag')[0]
-//             currentAddTag.setAttribute('open','')
-//             target.setAttribute('aria-expanded','true')
-//         },
-//         addTagClose(){
-//             const currentAddTag = currentCard.getElementsByClassName('js-add-tag')[0]
-//             closeAddTag(currentAddTag)
-//         },
-//         addTagCard(){
-//             const currentTag = target.getAttribute('data-tagname')
-//             cardes[currentCardIndex].tags.push(currentTag)
-//             renderCards()
-//         },
-//         removeTagCard(){
-//             const currentTag = target.getAttribute('data-tagname')
-//             cardes[currentCardIndex].tags.splice(cardes[currentCardIndex].tags.indexOf(currentTag),1)
-//             renderCards()
-//         }
-//     }
-
-//     if(actions[action]) actions[action]()
-// })
 
 renderCards()

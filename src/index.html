@@ -11,9 +11,112 @@
     </head>
     <body class="c-body">
 
-        <a href="./add-card.html" class="o-widget">+</a>
+        <button class="o-widget js-open-add-card">+</button>
 
-        <main class="c-main js-card-container js-card-container-1">
+        <dialog class="c-modal js-modal">
+                <div class="c-panel">
+                    <div class="l-wrapper c-panel__wrapper">
+                        <div class="c-panel__header">
+                            <span class="c-panel__icon fa-solid fa-circle-plus" aria-hidden="true"></span>
+                            <h1 class="c-panel__title">Adicionar novo card</h1>
+                        </div>
+                        <div class="c-card__content c-card__content--center" aria-hidden="true">
+                            <div class="l-wrapper c-panel__wrapper c-panel__wrapper--small">
+                                <div class="c-card__header">
+                                    <h1 class="c-card__title js-card-title">Page</h1>
+                                    <h2 class="c-card__type js-card-subtitle">Desktop</h2>
+                                </div>
+                                <ul class="c-card__tags js-tag-container">
+                                </ul>
+                                <p class="c-card__description js-card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <picture class="c-card__image js-preview-image" aria-hidden="true">
+                                    <img class="c-card__icon js-preview-icon" width="30" height="30" src="./assets/icon.svg" alt="Icone do site XXX">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="c-panel__wrapper">
+                            <div class="o-input">
+                                <label class="o-input__label" for="title-preview">Titulo</label>
+                                <input class="o-input__input js-input" data-action="input" data-text="title" id="title-preview" type="text" placeholder="Inserir titulo do site">
+                            </div>
+                            <div class="o-input">
+                                <label class="o-input__label" for="subtitle-preview">Subtitulo</label>
+                                <input class="o-input__input js-input" data-action="input" data-text="subtitle" id="subtitle-preview" type="text" placeholder="Inserir subtitulo do site">
+                            </div>
+                            <div class="o-input">
+                                <label class="o-input__label" for="description-preview">Descrição</label>
+                                <input class="o-input__input js-input" data-action="input" data-text="description" id="description-preview" type="text" placeholder="Inserir descriçao do site">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="c-panel js-panel">
+                    <h2 class="c-panel__title">tags</h2>
+    
+                    <ul class="c-card__tags c-card__tags--row">
+                        <div class="c-card__added">
+                            <ul class="c-card__added-tags js-container-tags-square">
+                            </ul>
+                        </div>
+                        <li class="o-tag o-tag--add">
+                            <button class="o-tag__button o-tag__button--add o-tag__button--square js-add-open" data-action="addTagOpen" id="add-tags-1" aria-expanded="false" aria-label="adicionar mais uma tag ao card" aria-controls="tags-1"><img src="./assets/addIcon.svg" alt=""></button>
+                            <div class="c-card__add-tag c-card__add-tag--square js-add-tag" id="tags-1" data-action="addTag" aria-labelledby="add-tags-1">
+                                <div class="c-card__wrapper">
+                                    <h3 class="c-card__title">Escolher tags</h3>
+                                    <button class="c-card__close c-card__close--square fa-solid fa-xmark" data-action="addTagClose" aria-label="fechar janela que adiciona tags ao card"></button>
+                                </div>
+                                <ul class="c-card__container js-tags-square">
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+    
+                    <div class="o-file">
+                        <picture class="o-file__icon" aria-hidden="true">
+                            <img src="./assets/folder.svg" alt="">
+                        </picture>
+    
+                        <div class="o-file__content">
+                            <label class="o-file__button" name="" for="icon-file">Escolher ícone</label>
+                            <input class="o-file__input sr-only" data-action="icon" type="file" name="" id="icon-file">
+                            <label class="o-file__file-name js-icon-name" for="icon-file" aria-label="Nenhum ícone selecionado">Nenhum</label>
+                        </div>
+                    </div>
+    
+                    <div class="c-panel__wrapper c-panel__wrapper--row">
+                        <div class="o-color-picker">
+                            <label class="o-color-picker__title" for="picker-color">Escolher
+                                <span class="o-color-picker__title--small">cor do site</span>
+                            </label>
+                            
+                            <input class="o-color-picker__picker js-color" data-action="color" type="color" id="picker-color" value="#60a5fa">
+                        </div>
+    
+    
+                        <div class="c-panel__wrapper">
+                            <div class="o-input">
+                                <label class="o-input__label" for="link-preview">Link</label>
+                                <input class="o-input__input js-input" data-action="input" data-text="link" id="link-preview" type="text" placeholder="Inserir link do site">
+                            </div>
+    
+                            <hr class="o-line l-card__line">
+    
+                            <div class="c-panel__wrapper c-panel__wrapper--row-reverse">
+                                <label for="save-bookmark" class="c-panel__save">Adicionar como favorito</label>
+                                <input class="o-save fa-bookmark js-card-save" data-action="favorite" aria-checked="false" type="checkbox" name="" id="save-bookmark">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="c-panel__wrapper c-panel__wrapper--row">
+                        <button class="c-panel__button" data-action="closeModal">Voltar</button>
+                        <button class="c-panel__button c-panel__button--purple" data-action="save" aria-label="Salvar card">Salvar</button>
+                    </div>
+                </div>
+        </dialog>
+
+        <main class="c-main js-card-container">
             <article class="c-card js-card">
                 <div class="c-card__content">
                     <div class="c-card__header">

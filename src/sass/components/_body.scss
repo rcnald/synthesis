@@ -2,4 +2,8 @@ $component-name: 'c-body';
 
 .#{$component-name}{
     @apply flex items-center justify-center font-main p-16 bg-background-900 min-h-screen;
+
+    &:has(.c-modal[open]){
+        @apply overflow-hidden
+    }
 }

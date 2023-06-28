@@ -1,0 +1,15 @@
+@use '../abstract/' as *;
+
+$component-name: 'c-modal';
+
+.#{$component-name}{
+    @apply flex-col items-center gap-10 w-full max-w-[1000px] bg-transparent backdrop:bg-black;
+
+    &[open]{
+        @apply flex;
+    }
+
+    @include breakpoint(min,lg){
+       @apply flex-row items-stretch;
+    };
+}
